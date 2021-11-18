@@ -1,0 +1,9 @@
+{
+  "name": "teryt-js-wrapper",
+  "version": "0.1.0",
+  "description": "wrapper library for TERYT WS1 database",
+  "main": "index.ts",
+  "repository": "https://github.com/czeskij/teryt-js-wrapper.git",
+  "author": "Jakub Rajski",
+  "license": "MIT"
+}
