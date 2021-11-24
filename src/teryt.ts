@@ -6,6 +6,8 @@ export class Teryt {
     private _password: string;
     private _parser: XMLParser;
 
+    public static URL: string = "https://uslugaterytws1.stat.gov.pl/TerytWs1.svc";
+
     constructor(config: TerytConfig) {
         if (config.username === '' && config.password === '') {
             throw new Error('TerytToolkit: you have to provide username and password.');

@@ -1,5 +1,5 @@
 {
-  "name": "teryt-js-wrapper",
+  "name": "teryt-toolkit",
   "version": "0.1.0",
   "description": "wrapper library for TERYT WS1 database",
   "source": "src/index.ts",
