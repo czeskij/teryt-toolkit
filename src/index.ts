@@ -1,2 +1,2 @@
 export { Teryt } from './teryt';
-export * from './methods/searchCity';
+export * from './methods/WyszukajMiejscowosc';

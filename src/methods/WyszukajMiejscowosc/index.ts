@@ -1,19 +1,13 @@
 import { TerytMethod, TerytResponse } from "../../types";
 
-export const searchCity = (query: string): TerytMethod => ({
+export const WyszukajMiejscowosc = (query: string): TerytMethod => ({
     name: 'WyszukajMiejscowosc',
     params: [
         { name: 'nazwaMiejscowosci', value: query },
     ],
 });
 
-interface SearchCityMethodResponse {
-    "WyszukajMiejscowoscResponse": {
-        "WyszukajMiejscowoscResult": CityResponse[];
-    };
-};
-
-interface CityResponse {
+interface MiejscowoscDTO {
     "b:Miejscowosc": {
         "b:GmiRodzaj": number,
         "b:GmiSymbol": string,
@@ -27,4 +21,4 @@ interface CityResponse {
     },
 };
 
-export type SearchCityResponse = TerytResponse<SearchCityMethodResponse>;
+export type WyszukajMiejscowoscResponse = TerytResponse<'WyszukajMiejscowosc', MiejscowoscDTO>;

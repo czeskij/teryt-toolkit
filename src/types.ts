@@ -1,3 +1,5 @@
+import { TerytMethodType } from "./methods";
+
 export interface TerytConfig {
     username: string,
     password: string,
@@ -10,7 +12,7 @@ interface TerytMethodParameter {
 };
 
 export interface TerytMethod {
-    name: string,
+    name: TerytMethodType,
     params: TerytMethodParameter[],
 };
 
@@ -28,7 +30,13 @@ export interface TerytCompleteRequest extends TerytRequest {
     headers: TerytRequestHeaders,
 }
 
-export interface TerytResponse<T> {
+type TerytMethodResponse<Method, DTO> = {
+    [Prop in keyof Method as `${Uppercase<string & Method>}Response`]: {
+        [Prop in keyof Method as `${Uppercase<string & Method>}Result`]: DTO;
+    }
+}
+
+export interface TerytResponse<T, P> {
     "s:Envelope": {
         "s:Header": {
             "a:Action": string,
@@ -37,7 +45,9 @@ export interface TerytResponse<T> {
                 "u:Expires": string,
             },
         },
-        "s:Body": T,
+        "s:Body": TerytMethodResponse<T, P>,
     },
 };
 
+// suppress build warnings for now
+export type Buffer = unknown;
